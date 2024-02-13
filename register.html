@@ -1,0 +1,83 @@
+<section>
+    <div class="menu">
+        <!-- Background image -->
+        <div id="intro2" class="bg-image shadow-2-strong">
+            <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 col-md-8">
+                            <form class="bg-white rounded shadow-5-strong p-5" onsubmit="validateRegistration()">
+                                <!-- Full Name input -->
+                                <div class="mb-4">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" id="fullName" class="form-control" required />
+                                </div>
+                                <!-- Email input -->
+                                <div class="mb-4">
+                                    <label for="emailForRegistration" class="form-label">Email</label>
+                                    <input type="email" id="emailForRegistration" class="form-control" required />
+                                </div>
+                                <!-- Password input with toggleable visibility -->
+                                <div class="mb-4">
+                                    <label for="passwordForRegistration" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" id="passwordForRegistration" class="form-control"
+                                            required />
+                                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                            <i class="bi bi-eye" id="eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Confirm Password input -->
+                                <div class="mb-4">
+                                    <label for="confirmPasswordForRegistration" class="form-label">Confirm
+                                        Password</label>
+                                    <div class="input-group">
+                                        <input type="password" id="confirmPasswordForRegistration" class="form-control"
+                                            required />
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            id="toggleConfirmPassword">
+                                            <i class="bi bi-eye" id="eyeConfirm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Phone Number input -->
+                                <div class="mb-4">
+                                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                                    <input type="text" id="phoneNumber" class="form-control" required />
+                                </div>
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-success btn-block">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Background image -->
+</section>
+<script>
+    function togglePasswordVisibility(inputId, iconId) {
+        const passwordInput = document.getElementById(inputId);
+        const eyeIcon = document.getElementById(iconId);
+
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        eyeIcon.classList.toggle('bi-eye');
+        eyeIcon.classList.toggle('bi-eye-slash');
+    }
+
+    document.getElementById('togglePassword').addEventListener('click', () => {
+        togglePasswordVisibility('passwordForRegistration', 'eye');
+    });
+
+    document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
+        togglePasswordVisibility('confirmPasswordForRegistration', 'eyeConfirm');
+    });
+</script>
+<style>
+    #intro2 {
+        background-image: url(https://wallpapers.com/images/featured-full/flower-kjzc9tzmwq40sj5f.jpg);
+        height: 100vh;
+    }
+</style>

@@ -21,6 +21,13 @@ app.config(function ($routeProvider) {
     .when('/ContactUs', {
       templateUrl: 'ContactUs.html'
     })
+    .when('/login', {
+      templateUrl: 'login.html',
+      controller: 'loginController'
+    })
+    .when('/register', {
+      templateUrl: 'register.html'
+    })
 });
 
 // Controller product
@@ -63,20 +70,6 @@ app.controller('listController', function ($scope, $http) {
     $scope.displayedProducts = $scope.products.slice(startIndex, endIndex);
   };
 
-//   $scope.changePage = function (newPage) {
-//     if (newPage > 0 && newPage <= $scope.pageCount && newPage !== $scope.currentPage) {
-//         $scope.currentPage = newPage;
-//         $scope.updateDisplayedProducts();
-//     } else if (newPage === $scope.currentPage) {
-//         // Nếu trùng trang, refresh lại
-//         $scope.updateDisplayedProducts();
-//     } else {
-//         // Nếu newPage vượt quá số trang hiện có, không làm gì cả
-//         return;
-//     }
-// };
-
-
   $scope.getPages = function () {
     var pages = [];
     for (var i = 1; i <= $scope.pageCount; i++) {
@@ -87,6 +80,34 @@ app.controller('listController', function ($scope, $http) {
 });
 
 
+// Định nghĩa controller 'loginController'
+app.controller('loginController', function ($scope, $location) {
+  // Hàm xử lý submit form đăng nhập
+  $scope.login = function () {
+    // Kiểm tra xác thực tại đây, ví dụ:
+    var email = $scope.emailForLogin;
+    var password = $scope.passwordForLogin;
+    // Kiểm tra điều kiện đăng nhập (Ví dụ đơn giản)
+    if (email === 'admin@gmail.com' && password === 'admin123') {
+      localStorage.setItem("isLogin", true);
+      toggleProfile(); // Hiển thị phần profile
+      $location.path('/');
+    }
+    else {
+      // Nếu thông tin đăng nhập không chính xác, thông báo lỗi hoặc xử lý khác
+      alert('Email hoặc mật khẩu không chính xác');
+    }
+  };
+});
+
+
+// Hàm kiểm tra số điện thoại hợp lệ
+function isValidPhoneNumber(phoneNumber) {
+  // Xóa các ký tự không phải số
+  phoneNumber = phoneNumber.replace(/\D/g, '');
+  // Kiểm tra có đúng 10 số không
+  return phoneNumber.length === 10;
+}
 
 // app.controller("listController", function ($scope, $http) {
 //   $scope.hienThiSanPham = [];
