@@ -1,0 +1,217 @@
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="d-flex justify-content-center">
+          <img id="mainImage" class="main-image"
+            src="../image/products/{{product.hinh}}"
+            alt="Main Image" />
+        </div>
+        <hr>
+        <div class="d-flex justify-content-center mb-3">
+          <img class="carousel-image"
+            src="../image/products/{{product.hinh}}"
+            alt="Image 1" style="width: 10rem;height: 12rem; padding:0.5rem;" />
+          <!-- Thêm các hình ảnh khác như trên -->
+          <img class="carousel-image"
+            src="../image/products/{{product.hinh}}"
+            alt="Image 2" style="width: 10rem;height: 12rem; padding:0.5rem;" />
+          <img class="carousel-image"
+            src="../image/products/{{product.hinh}}"
+            alt="Image 3" style="width: 10rem;height: 12rem; padding:0.5rem;" />
+          <img class="carousel-image"
+            src="../image/products/{{product.hinh}}"
+            alt="Image 4" style="width: 10rem;height: 12rem; padding:0.5rem;" />
+        </div>
+      </aside>
+      <main class="col-lg-6">
+        <div class="ps-lg-3" >
+          <h1 class="title text-dark">
+           {{product.ten}}
+          </h1>
+          <h4>Orange Roses and Alstroemerias</h4>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1">
+                4.5
+              </span>
+            </div>
+            <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>{{product.soLuongDaBan}} Has Sold</span>
+            <span class="text-success ms-2">50 On Stock</span>
+          </div>
+
+          <div class="mb-3">
+            <span class="h5">{{product.giamGia}} €</span>
+            <span class="text-muted">/For One Classic</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere omnis similique dignissimos tenetur
+            deserunt eligendi natus soluta aut odio ullam. Iste ipsa tempore ratione magni exercitationem nihil
+            tenetur dignissimos rerum totam, laboriosam fuga, neque eaque commodi dolorem at optio eveniet quaerat est
+            placeat id vero. Eligendi harum suscipit reprehenderit sed perferendis repellendus provident numquam qui,
+            ipsa labore iste ea possimus?
+          </p>
+          <div class="row">
+            <div id="autocompleteAddressInput">
+              <div class="input-wrapper-class relative h-12 rounded-lg border border-dark-25">
+                <label style="margin-right:9.8rem;">
+                  Choose Delivery City
+                </label>
+                <div class="pointer-events-none absolute inset-y-0 flex items-center px-3 right-0"
+                  style="display: contents;">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <input id="productPageAddressInput" placeholder="Choose delivery city"
+                  class="block h-full w-full text-sm font-medium placeholder:!font-medium placeholder:!text-dark/50 focus:!shadow-none sm:text-base text-base bg-input-default bg-opacity-input-default placeholder-dark/50 pl-4 pr-12 text-dark pac-target-input"
+                  type="text" autocomplete="off">
+                <div class="absolute inset-y-0 right-2 hidden items-center md:flex mr-8"><!----></div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="row mb-4">
+            <div class="col-md-4 col-6">
+              <label class="mb-2">Size</label>
+              <select class="form-select border border-secondary" style="height: 35px;">
+                <option>Classic</option>
+                <option>Premium</option>
+                <!-- <option>Large</option> -->
+              </select>
+            </div>
+            <div class="col-md-4 col-6 mb-3">
+              <label class="mb-2 d-block">Quantity</label>
+              <div class="input-group mb-3" style="width: 170px;">
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1"
+                  data-bs-ripple-color="dark">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input type="text" class="form-control text-center border border-secondary" placeholder="1"
+                  aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2"
+                  data-bs-ripple-color="dark">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-warning shadow-0"> Buy Now </a>
+          <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart
+          </a>
+          <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"
+            style="background-color: rgb(248, 207, 213);"> <i class="me-1 fa fa-heart fa-lg"></i> Wishlist </a>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+<section class="bg-light border-top py-4">
+  <div class="container">
+    <div class="row gx-4">
+      <div class="col-lg-8 mb-4">
+        <div class="border rounded-2 px-3 py-2 bg-white">
+          <!-- Pills navs -->
+          <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100 active" id="ex1-tab-1"
+                data-bs-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1"
+                aria-selected="true">Speacial</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-2"
+                data-bs-toggle="pill" href="#ex1-pills-2" role="tab" aria-controls="ex1-pills-2"
+                aria-selected="false">Refunds</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-3"
+                data-bs-toggle="pill" href="#ex1-pills-3" role="tab" aria-controls="ex1-pills-3"
+                aria-selected="false">Delivery</a>
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-4"
+                data-bs-toggle="pill" href="#ex1-pills-4" role="tab" aria-controls="ex1-pills-4"
+                aria-selected="false">Information</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="ex1-content">
+            <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, accusantium cupiditate possimus odio
+                provident voluptatum similique ea ipsam expedita aliquam autem mollitia consequuntur vitae? Esse,
+                alias iste nihil iure cupiditate maiores voluptatibus illo, harum cum atque ad assumenda! Eligendi
+                fuga assumenda vero molestias quod veritatis iste error ex, doloribus, dignissimos debitis unde eos.
+                Eos molestiae dolores ut molestias neque nulla distinctio, facilis sed? Quo voluptates enim, natus
+                quia distinctio in doloribus? Sit, consequatur? Deleniti mollitia neque fuga eos sapiente ab!
+              </p>
+              <div class="row mb-2">
+                <div class="col-12 col-md-6">
+                  <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum dolor sit amet.</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum dolor sit.</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum, dolor sit amet consectetur
+                      adipisicing.</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum dolor sit amet consectetur,
+                      adipisicing.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade mb-2" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit reprehenderit sint adipisci optio dolore,
+              magnam quidem soluta autem sunt obcaecati.
+            </div>
+            <div class="tab-pane fade mb-2" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis cupiditate temporibus labore harum
+              minima doloribus qui voluptatum soluta? Ab, nulla necessitatibus ea, mollitia atque exercitationem
+              maiores minus unde non ipsam dignissimos maxime, illo eius ipsa? Autem cum doloribus rerum provident.
+            </div>
+            <div class="tab-pane fade mb-2" id="ex1-pills-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, vero aliquam quae nobis omnis tenetur
+              reiciendis similique sequi eveniet unde eos voluptas error neque dignissimos? Inventore reprehenderit
+              eos ullam earum aperiam repellat tempore quae, explicabo perspiciatis ratione odit nostrum minus
+              aspernatur doloremque quam deserunt veniam neque qui accusamus ex voluptatibus eum ut veritatis
+              molestias? Consequuntur exercitationem earum ea voluptas aperiam.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="px-0 border rounded-2 shadow-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Similiar Flowers</h5>
+              <div class="d-flex mb-3" ng-repeat="p in products | limitTo:4">
+                <a href="#!chi-tiet-san-pham/{{p.id}}" class="me-3">
+                  <img
+                    src="../image/products/{{p.hinh}}"
+                    style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                </a>
+                <div class="info">
+                  <a href="#!chi-tiet-san-pham{{p.id}}" class="nav-link mb-1">
+                    <h4> {{p.ten}} </h4>
+                    Roses and Lilies
+                  </a>
+                  <strong class="text-dark"> {{p.giamGia}} €</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  function changeImage(imageUrl) {
+    document.getElementById('mainImage').src = imageUrl;
+  }
+</script>

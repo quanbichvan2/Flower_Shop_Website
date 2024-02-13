@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/poly.css">
+  <link rel="icon" href="" type="image/x-icon" />
+  <!-- Latest compiled JavaScript -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/CSS/mdb.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp">
+  <div class="menu">
+    <div class="menubar">
+      <header class="custom-dark-bg" style="height: 4.5rem;">
+        <div class="container px-4 py-4">
+          <div class="d-flex justify-content-end gap-4 align-items-center custom-right-align">
+            <div class="position-relative d-flex flex-column align-items-end">
+
+              <label class="visually-hidden" for="search">Search</label>
+              <div class="search-and-icons d-flex align-items-center">
+                <div class="input-group mr-2">
+                  <input class="form-control rounded-pill border-0 bg-white shadow-sm" id="search" type="search"
+                    placeholder="Search Flower..." />
+                  <div class="input-group-append" style="margin: 0.2rem;">
+
+                    <button type="button" class="btn rounded-pill bg-light text-secondary border-0 shadow-sm"
+                      style="margin: 0.2rem;">
+                      <span class="visually-hidden">Search</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+
+                  </div>
+                  <!-- icon thông báo -->
+                  <div class="input-group-append" style="margin: 0.2rem;">
+                    <a href="#"
+                      class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark ml-2 ">
+                      <span class="visually-hidden">Notifications</span>
+                      <i class="bi bi-bell-fill"></i>
+                    </a>
+                  </div>
+
+                  <div class="input-group-append" style="margin: 0.2rem;">
+                    <!-- wishlist -->
+                    <a href="#"
+                      class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark ml-2">
+                      <span class="visually-hidden">Favorites</span>
+                      <i class="bi bi-box2-heart"></i>
+                    </a>
+                  </div>
+                  <div class="input-group-append" style="margin: 0.2rem;">
+                    <!-- cart -->
+                    <a href="#"
+                      class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark ml-2 ">
+                      <span class="visually-hidden">Cart</span>
+                      <i class="bi bi-cart3"></i>
+                    </a>
+                  </div>
+                  <!-- cái  -->
+                  <span aria-hidden="true" class="d-block h-6 w-px rounded-full bg-light">&nbsp;</span>
+                  <!-- login và logout -->
+                  <div class="login-logout" style=" display: flex; align-items: center; margin: 0.3rem;">
+                    <a class="nav-link active" href="login.html" onclick="toggleProfile()">Sign Up</a>
+                    <h5 style="margin: 0.3rem;">/</h5>
+                    <a class="nav-link active" href="resgister.html" onclick="toggleProfile()">Sign In</a>
+                  </div>
+                  <!-- đang trong quá trình hoàn thiện login và out -->
+                  <div class="profile-container hidden-profile">
+                    <a href="#" class="d-block profile">
+                      <span class="visually-hidden">Profile</span>
+                      <img alt="Man"
+                        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        class="img-fluid rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </header>
+    </div>
+  </div>
+  <!-- phần ảnh giữa -->
+  <header class="row">
+    <img class="pull-right" src="../image/1.jpg" />
+  </header>
+  <div class="taskbar" id="custom-navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="justify-content: center;">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html"> <i class="bi bi-house-door-fill"> </i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Bouquets.html"> <i class="bi bi-flower3"> </i>Bouquets</a>
+          </li>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="productDetail.html" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-flower1"> </i>Plants
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./productDetail.html"> All Plants</a></li>
+                <div class="dropdown-divider"></div>
+                <li><button class="dropdown-item" type="button"> Bonsai</button></li>
+                <li><button class="dropdown-item" type="button"> Trees</button></li>
+                <li><button class="dropdown-item" type="button"> Flowering Plants</button></li>
+                <li><button class="dropdown-item" type="button"> Grasses</button></li>
+              </ul>
+            </li>
+          </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="productDetail.html"> <i class="bi bi-fire"> </i> On Sales</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ContactUs.html"> <i class="bi bi-envelope-fill"> </i> Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ContactUs.html"> <i class="bi bi-person-circle"></i> About Us</a>
+          </li>
+        </ul>
+        <!-- menu dropdown -->
+
+      </div>
+
+    </nav>
+  </div>
+  <div class="mb-4" style="background-color:rgb(68 132 135)">
+    <div class="container py-4">
+      <h3 class="text-white mt-2">Flower Shop</h3>
+      <!-- Breadcrumb -->
+      <nav class="d-flex mb-2">
+        <h6 class="mb-0">
+          <a href="./index.html" class="text-white-50">Home</a>
+          <span class="text-white-50 mx-2"> &gt; </span>
+          <a href="#" class="text-white"><u>Flowers</u></a>
+        </h6>
+      </nav>
+    </div>
+  </div>
+  <!-- đoạn search góc trái -->
+  <section class="TypeOfFlower">
+    <div class="container">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="col-lg-3">
+          <!-- Toggle button -->
+          <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span>Show Search</span>
+          </button>
+          <!-- Collapsible wrapper -->
+          <div class="collapse card d-lg-block mb-5" id="navbarSupportedContent">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button text-dark bg-secondary text-white" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseTwo">
+                    Type Of Flowers
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+                  aria-labelledby="headingTwo">
+                  <div class="accordion-body">
+                    <div>
+                      <!-- Checked checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked="">
+                        <label class="form-check-label" for="flexCheckChecked1">Flower Bonsai</label>
+                        <span class="badge badge-warning float-end">120</span>
+                      </div>
+                      <!-- Checked checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked="">
+                        <label class="form-check-label" for="flexCheckChecked2">Flower Grasses</label>
+                        <span class="badge badge-success float-end">15</span>
+                      </div>
+                      <!-- Checked checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked="">
+                        <label class="form-check-label" for="flexCheckChecked3">Flower Bouquets</label>
+                        <span class="badge badge-info float-end">35</span>
+                      </div>
+                      <!-- Checked checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked="">
+                        <label class="form-check-label" for="flexCheckChecked4">Flower Trees</label>
+                        <span class="badge badge-secondary float-end">89</span>
+                      </div>
+                      <!-- Default checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Flower Plants</label>
+                        <span class="badge badge-secondary float-end">30</span>
+                      </div>
+                      <!-- Default checkbox -->
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Another</label>
+                        <span class="badge badge-secondary float-end">30</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseThree">
+                    Price
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+                  aria-labelledby="headingThree">
+                  <div class="accordion-body">
+                    <div class="range">
+                      <input type="range" class="form-range" id="customRange1">
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-6">
+                        <p class="mb-0">
+                          Min
+                        </p>
+                        <div class="form-outline">
+                          <input type="number" id="typeNumberMin" class="form-control" oninput="checkInputMoneyRange()">
+                          <label class=" form-label" for="typeNumber" id="rangeMoneyMin">0.00€</label>
+                        </div>
+                      </div>
+                      <div class=" col-6">
+                        <p class="mb-0">
+                          Max
+                        </p>
+                        <div class="form-outline">
+                          <input type="number" id="typeNumberMax" class="form-control" oninput="checkInputMoneyRange()">
+                          <label class="form-label" for="typeNumber" id="rangeMoneyMax">100.00€</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-white w-100 border border-secondary">Confirm</button>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseFour">
+                    Style and Size
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+                  aria-labelledby="headingThree">
+                  <div class="accordion-body">
+                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1" checked=""
+                      autocomplete="off" onclick="changeColor('btn-check1')">
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">Small</label>
+
+                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check2" checked=""
+                      autocomplete="off" onclick="changeColor('btn-check2')">
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">Medium</label>
+
+                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check3" checked=""
+                      autocomplete="off" onclick="changeColor('btn-check3')">
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">Big</label>
+
+                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check4" checked=""
+                      autocomplete="off" onclick="changeColor('btn-check4')">
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check4">Deluxe</label>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseFive">
+                    Rates
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
+                  aria-labelledby="headingThree">
+                  <div class="accordion-body">
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                      </label>
+                    </div>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                      </label>
+                    </div>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                      </label>
+                    </div>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                      </label>
+                    </div>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                        <i class="fas fa-star text-secondary"></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- sidebar -->
+        <!-- đoạn góc phải -->
+        <!-- content -->
+        <div class="col-lg-9">
+          <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
+            <strong class="d-block py-2">
+              <!-- 32 Items found  -->
+            </strong>
+            <div class="ms-auto">
+              <select class="form-select d-inline-block w-auto border pt-1">
+                <option value="0">The Best</option>
+                <option value="1">Recommed</option>
+                <option value="2">Good</option>
+                <option value="3">Random</option>
+              </select>
+              <div class="btn-group shadow-0 border">
+                <a href="#" class="btn btn-light active" title="List view">
+                  <i class="fa fa-bars fa-lg"></i>
+                </a>
+                <a href="./gridViewProduct.html" class="btn btn-light" title="Grid view">
+                  <i class="fa fa-th fa-lg"></i>
+                </a>
+              </div>
+            </div>
+          </header>
+          
+          <div class="row justify-content-center mb-3" style="height: auto;" ng-controller="myctrl">
+            <div class="col-md-12" ng-repeat="sp in listsp ">
+              <!-- sp mới -->
+              <div class="card shadow-0 border rounded-3">
+                <div class="card-body">
+                  <div class="row g-0">
+                    <div class="col-xl-3 col-md-4 d-flex justify-content-center">
+                      <div class="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
+                        <img src="../image/products/{{sp.hinh}}" alt="error" class="img-thumbnail mw-100 h-100">
+                        <a href="./productDetail.html">
+                          <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-md-5 col-sm-7">
+                      <h5>{{sp.ten}}</h5>
+                      <div class="d-flex flex-row">
+                        <div class="text-warning mb-1 me-2">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fas fa-star-half-alt"></i>
+                          <span class="ms-1">
+                            4.5
+                          </span>
+                        </div>
+                        <span class="text-muted">154 Has Sold</span>
+                      </div>
+        
+                      <p class="text mb-4 mb-md-0">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fugit dolorem quae consectetur
+                      </p>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-sm-5">
+                      <div class="d-flex flex-row align-items-center mb-1">
+                        <h4 class="mb-1 me-1">{{sp.gia}}€</h4>
+                        <span class="text-danger"><s>{{sp.discount}}€</s></span>
+                      </div>
+                      <h6 class="text-success">Free Ship</h6>
+                      <div class="mt-4">
+                        <button class="btn btn-primary shadow-0" type="button">Buy It</button>
+                        <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i
+                            class="fas fa-heart fa-lg px-1"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+              <ul class="pagination">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-lg-start text-muted mt-3" style="background-color:#c9dfec;">
+    <div class="footer-top">
+      <div class="container pt-4 pb-4">
+        <div class="row gy-5">
+          <div class="col-lg-4">
+            <a href="" style="color: black;">YunEddy</a>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit architecto unde
+              magnam.</p>
+            <div class="social-links">
+              <a href="#" target=""><i class="ri-facebook-circle-fill"></i></a>
+              <a href="#" target=""><i class="ri-instagram-fill"></i></a>
+              <a href="#" target=""><i class="ri-links-fill"></i></a>
+              <a href="#" target=""><i class="ri-youtube-fill"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 ms-auto">
+            <h6 class="text-black mb-4">Find Us At</h6>
+            <p class="mb-1">Phone: (+84) 929 435 927</p>
+            <p class="mb-1">Email: thienflowers@gmail.vn</p>
+            <p class="mb-0">
+              Address: 45 HIGHWAY, CA, USA</p>
+          </div>
+          <div class="col-lg-3">
+            <h6 class="text-black mb-4">Time Open</h6>
+            <p class="mb-1">Monday to Friday: 10am - 9pm</p>
+            <p>Saturday to Sunday: 9am - 9pm</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<!-- Add this script at the end of your HTML body -->
+<script>
+  var app = angular.module("myapp", []);
+    console.log("app", app);
+    app.controller("myctrl", function ($scope) {
+      $scope.listsp = sp;
+    });
+  // Function to apply filters based on user input
+  function applyFilters() {
+    // Get the selected flower types
+    const flowerTypes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const selectedTypes = Array.from(flowerTypes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
+    
+    // Get the price range
+    const minPrice = document.getElementById('typeNumberMin').value;
+    const maxPrice = document.getElementById('typeNumberMax').value;
+    
+    // Get the selected styles and sizes
+    const stylesAndSizes = document.querySelectorAll('input[id^="btn-check"]:checked');
+    const selectedStylesAndSizes = Array.from(stylesAndSizes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
+    
+    // Get the selected rates
+    const selectedRates = document.querySelectorAll('input[type="checkbox"]:checked + label i.text-warning').length;
+    
+    // Implement your logic to filter the items based on the selected filters
+    // For demonstration purposes, I'm logging the selected filters
+    console.log('Selected Flower Types:', selectedTypes);
+    console.log('Price Range:', minPrice, '-', maxPrice);
+    console.log('Selected Styles and Sizes:', selectedStylesAndSizes);
+    console.log('Selected Rates:', selectedRates);
+  }
+  // đang sai 
+  // Event listener for the Confirm button
+  document.getElementById('filtersConfirmButton').addEventListener('click', applyFilters);
+
+</script>
+
+</html>
