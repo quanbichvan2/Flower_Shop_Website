@@ -1,5 +1,23 @@
 var app = angular.module('myApp', ['ngRoute']);
 
+app.run(function ($rootScope, $http) {
+
+  // rootScope Products = []
+  $rootScope.products = [];
+
+  $http.get('./data/products.json').then(function (response) {
+    $rootScope.products = response.data.Products
+  });
+
+  //rootscope islogin from session storage
+  $rootScope.isLogin = sessionStorage.getItem('isLogin');
+
+  // get carts from session storage
+  $rootScope.carts = JSON.parse(sessionStorage.getItem('carts')) || [];
+
+});
+
+
 app.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
@@ -35,11 +53,7 @@ app.config(function ($routeProvider) {
 
 // Controller product
 app.controller("productController", function ($scope, $http) {
-  $scope.products = [];
-  $http.get("/JS/products.js").then(function (dataConllection) {
-    $scope.products = dataConllection.data;
-    console.log($scope.products);
-  });
+
 });
 
 app.controller("productDetailController", function ($scope, $http, $routeParams) {
@@ -52,27 +66,10 @@ app.controller("productDetailController", function ($scope, $http, $routeParams)
   });
 });
 // nghiên cứu thêm !!!!
-app.controller('listController', function ($scope, $http) {
-  $scope.displayedProducts = [];
+app.controller('listController', function ($scope, $rootScope) {
   $scope.itemsPerPage = 4;
   $scope.currentPage = 1;
-
-  $http.get("/JS/products.js").then(function (dataCollection) {
-    $scope.displayedProducts = dataCollection.data;
-    $scope.pageCount = Math.ceil($scope.products.length / $scope.itemsPerPage);
-    $scope.pages = $scope.getPages();
-  });
-
-  $scope.changePage = function (newPage) {
-    if (newPage > 0 && newPage <= $scope.pageCount) {
-      $scope.currentPage = newPage;
-    }
-    // Tính toán chỉ hiển thị 9 sản phẩm mới cho mỗi trang
-    var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
-    var endIndex = startIndex + $scope.itemsPerPage;
-    $scope.displayedProducts = $scope.products.slice(startIndex, endIndex);
-  };
-
+  $scope.pageCount = Math.ceil( $rootScope.products.length / $scope.itemsPerPage);
   $scope.getPages = function () {
     var pages = [];
     for (var i = 1; i <= $scope.pageCount; i++) {
@@ -80,27 +77,111 @@ app.controller('listController', function ($scope, $http) {
     }
     return pages;
   };
+  $scope.displayedProducts = $rootScope.products.slice(0, $scope.itemsPerPage);
+  $scope.pages = $scope.getPages();
+
+
+  $scope.changePage = function (newPage) {
+    if (newPage > 0 && newPage <= $scope.pageCount) {
+      $scope.currentPage = newPage;
+    }
+    // Tính toán chỉ hiển thị 8 sản phẩm mới cho mỗi trang
+    var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
+    var endIndex = startIndex + $scope.itemsPerPage;
+    $scope.displayedProducts = $rootScope.products.slice(startIndex, endIndex);
+    console.log($scope.displayedProducts);
+  };
+
 });
 
-
 // Định nghĩa controller 'loginController'
-app.controller('loginController', function ($scope, $location) {
+app.controller('loginController', function ($scope, $location, $rootScope) {
   // Hàm xử lý submit form đăng nhập
-  $scope.login = function () {
+
+  $scope.logIn = function () {
     // Kiểm tra xác thực tại đây, ví dụ:
+
     var email = $scope.emailForLogin;
     var password = $scope.passwordForLogin;
     // Kiểm tra điều kiện đăng nhập (Ví dụ đơn giản)
     if (email === 'admin@gmail.com' && password === 'admin123') {
-      localStorage.setItem("isLogin", true);
-      toggleProfile(); // Hiển thị phần profile
+      // Nếu thông tin đăng nhập chính xác, chuyển hướng đến trang chủ
+      $rootScope.isLogin = true;
+      sessionStorage.setItem('isLogin', true);
+      alert('Đăng nhập thành công');
       $location.path('/');
     }
     else {
       // Nếu thông tin đăng nhập không chính xác, thông báo lỗi hoặc xử lý khác
       alert('Email hoặc mật khẩu không chính xác');
+
     }
   };
+
+
+
+});
+
+app.controller('navbarController', function ($scope, $rootScope) {
+  $scope.logOut = function () {
+    $rootScope.isLogin = false;
+    sessionStorage.setItem('isLogin', false);
+    $location.path('/');
+    alert('Đăng xuất thành công');
+  };
+
+});
+
+app.controller("cartController", function ($scope, $rootScope, $http) {
+  $scope.suggestProducts = [];
+  // suggest products get from json file name products.js
+  $http.get('./data/products.json').then(function (response) {
+    $scope.suggestProducts = response.data.Products.slice(0, 4);
+    console.log($scope.suggestProducts);
+  });
+
+  $scope.addToCart = function (product) {
+    var index = $rootScope.carts.findIndex(function (item) {
+      return item.id === product.id;
+    });
+
+    if (index === -1) {
+      product.quantity = 1;
+      $rootScope.carts.push(product);
+    } else {
+      $rootScope.carts[index].quantity++;
+    }
+  };
+
+  $scope.removeFromCart = function (product) {
+    var index = $rootScope.carts.findIndex(function (item) {
+      return item.id === product.id;
+    });
+
+    if (index !== -1) {
+      $rootScope.carts.splice(index, 1);
+    }
+  };
+
+  $scope.getTotal = function () {
+    var total = 0;
+    for (var i = 0; i < $rootScope.carts.length; i++) {
+      total += $rootScope.carts[i].price * $rootScope.carts[i].quantity;
+    }
+    return total;
+  };
+
+  $scope.getQuantity = function () {
+    var quantity = 0;
+    for (var i = 0; i < $rootScope.carts.length; i++) {
+      quantity += $rootScope.carts[i].quantity;
+    }
+    return quantity;
+  };
+
+
+
+
 });
 
 
@@ -112,38 +193,3 @@ function isValidPhoneNumber(phoneNumber) {
   return phoneNumber.length === 10;
 }
 
-// app.controller("listController", function ($scope, $http) {
-//   $scope.hienThiSanPham = [];
-//   $scope.sanPhamTrenTrang = 4; // cái này là limitTo (giống dị)
-//   $scope.trangHienTai = 1;
-//   $http.get("/JS/products.js").then(function (response) {
-//     $scope.hienThiSanPham = response.data;
-//     $scope.demSoTrang = Math.ceil($scope.hienThiSanPham.length / $scope.sanPhamTrenTrang);
-//     $scope.nhieuTrang = $scope.layTrang();
-//   });
-//   $scope.thayDoiTrang = function(trangMoi){
-//     if(trangMoi > 0 && trangMoi <= $scope.demSoTrang){
-//       $scope.trangHienTai = trangMoi;
-//     }
-//     var trangBatDau = ($scope.trangHienTai-1)* $scope.sanPhamTrenTrang;
-//     var trangKetThuc = trangBatDau + $scope.sanPhamTrenTrang;
-//     $scope.hienThiSanPham = $scope.product.slice(trangBatDau,trangKetThuc);
-//   }
-//   $scope.layTrang = function(){
-//     var nhieuTrang = [];
-//     for(var i = 1; i<= $scope.demSoTrang; i++){
-//       nhieuTrang.push(i);
-//     }
-//     return nhieuTrang;
-//   }
-// });
-/* ví dụ cụ thể:
- - data của bà có 12 sản phẩm mà 1 trang chỉ có 4 sản phẩm 
- - là có 3 trang (do đếm số trang đã đếm)
- < 1 2 3 >
- - sai
- 1 2 3 4 5 6 7 8
- - đúng
- 1 2 3 4
- 5 6 7 8
- */

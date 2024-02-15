@@ -18,7 +18,8 @@
   <script src="./JS/Angular/angular.min.js"></script>
   <script src="./JS/Angular/angular-route.js"></script>
   <script src="./AngularJS/angular.js"></script>
-
+  <script src="./JS/login.js"></script>
+  <script src="./data/products.json"></script>
   <!-- Thêm CSS inline để tùy chỉnh kích thước và màu sắc -->
   <style>
     .carousel-control-prev,
@@ -50,9 +51,9 @@
 </head>
 
 <body ng-app="myApp">
-  <header>
+  <header ng-controller="navbarController">
     <div class="custom-dark-bg" style="background-color: #c2eef1">
-      <div class="container py-2">
+      <div class=" py-2">
         <div class="row align-items-center">
           <div class="col-md-6 "> <!-- Adjust the column width as per your requirement -->
             <div class="input-group" style="padding: 0.5rem;justify-content: flex-end; margin-left: 6rem;">
@@ -82,24 +83,21 @@
               </a>
 
               <!-- cái này chưa login thì hiện -->
-              <div class="log" id="loginMenu">
+              <div class="log" id="loginMenu" ng-class="{'visually-hidden': isLogin}">
                 <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2 is-not-sign-in"
                   href="#!login" ng-click="toggleProfile()">Sign In</a>
                 <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2"
                   href="#!register" ng-click="toggleProfile()">Sign Up</a>
               </div>
-              
+
               <!-- cái này hiện sau khi đã login -->
-              <div class="log" id="profileMenu">
-                <a href="#" class="profile hover-text-dark me-2 is-sign-in">
-                  <span class="visually-hidden">Profile</span>
-                  <img alt="Man"
-                    src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    class="img-fluid rounded-circle"
-                    style="width: 37px; height: 37px; object-fit: cover; display: none;" />
-                </a>
+              <div class="log" id="profileMenu" ng-class="{'visually-hidden': !isLogin}">
+                <span class="visually-hidden">Profile</span>
+                <img alt="Man"
+                  src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  class="img-fluid rounded-circle" style="width: 37px; height: 37px; object-fit: cover;" />
                 <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2"
-                  onclick="logout()">Log out
+                  ng-click="logOut()">Log out
                 </a>
               </div>
 
@@ -216,12 +214,12 @@
     // style.display = 'block' hiện menu
   }
   //hàm logout
-  const logout = () => {
-    // .clear để xóa localStorage
-    localStorage.clear();
-    // .reload để tải lại trang
-    window.location.reload();
-  }
+  // const logout = () => {
+  //   // .clear để xóa localStorage
+  //   localStorage.clear();
+  //   // .reload để tải lại trang
+  //   window.location.reload();
+  // }
 
   /* ko work
     // script tắt mở menu
