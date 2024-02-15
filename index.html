@@ -19,7 +19,6 @@
   <script src="./JS/Angular/angular-route.js"></script>
   <script src="./AngularJS/angular.js"></script>
   <script src="./JS/login.js"></script>
-  <script src="./data/products.json"></script>
   <!-- Thêm CSS inline để tùy chỉnh kích thước và màu sắc -->
   <style>
     .carousel-control-prev,
@@ -50,66 +49,65 @@
   </style>
 </head>
 
-<body ng-app="myApp">
-  <header ng-controller="navbarController">
+<body ng-app="myApp" >
+  <header ng-controller="navbarController" class="container-fluid">
     <div class="custom-dark-bg" style="background-color: #c2eef1">
-      <div class=" py-2">
-        <div class="row align-items-center">
-          <div class="col-md-6 "> <!-- Adjust the column width as per your requirement -->
-            <div class="input-group" style="padding: 0.5rem;justify-content: flex-end; margin-left: 6rem;">
-              <input class="form-control rounded-pill border-0 bg-white" id="search" type="search"
-                placeholder="Search Flower..." style="max-width: 20rem; margin-right: 0.5rem;" />
-              <button type="button"
-                class="btn rounded-pill bg-light text-secondary border-0 shadow-sm input-group-text">
-                <span class="visually-hidden">Search</span>
-                <i class="bi bi-search" style="color: black;"></i>
-              </button>
-            </div>
+      <div class="row align-items-center">
+        <div class="col-md-6 "> <!-- Adjust the column width as per your requirement -->
+          <div class="input-group" style="padding: 0.5rem;justify-content: flex-end; margin-left: 6rem;">
+            <input class="form-control rounded-pill border-0 bg-white" id="search" type="search"
+              placeholder="Search Flower..." style="max-width: 20rem; margin-right: 0.5rem;" />
+            <button type="button" class="btn rounded-pill bg-light text-secondary border-0 shadow-sm input-group-text">
+              <span class="visually-hidden">Search</span>
+              <i class="bi bi-search" style="color: black;"></i>
+            </button>
           </div>
-          <div class="col-md-6"> <!-- Adjust the column width as per your requirement -->
-            <div class="d-flex justify-content-end">
-              <a href="#" class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2">
-                <span class="visually-hidden">Notifications</span>
-                <i class="bi bi-bell-fill" style="color: black;"></i>
-              </a>
-              <a href="#" class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2">
-                <span class="visually-hidden">Favorites</span>
-                <i class="bi bi-box2-heart" style="color: black;"></i>
-              </a>
-              <a href="#!shoppingcart"
-                class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2">
-                <span class="visually-hidden">Cart</span>
-                <i class="bi bi-cart3" style="color: black;"></i>
-              </a>
+        </div>
+        <div class="col-md-6"> <!-- Adjust the column width as per your requirement -->
+          <div class="d-flex justify-content-end">
+            <a href="#" class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2">
+              <span class="visually-hidden">Notifications</span>
+              <i class="bi bi-bell-fill" style="color: black;"></i>
+            </a>
+            <a href="#" class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2">
+              <span class="visually-hidden">Favorites</span>
+              <i class="bi bi-box2-heart" style="color: black;"></i>
+            </a>
+            <a href="#!shoppingcart"
+              class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2">
+              <span class="visually-hidden">Cart</span>
+              <i class="bi bi-cart3" style="color: black;"></i>
+            </a>
 
-              <!-- cái này chưa login thì hiện -->
-              <div class="log" id="loginMenu" ng-class="{'visually-hidden': isLogin}">
-                <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2 is-not-sign-in"
-                  href="#!login" ng-click="toggleProfile()">Sign In</a>
-                <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2"
-                  href="#!register" ng-click="toggleProfile()">Sign Up</a>
-              </div>
-
-              <!-- cái này hiện sau khi đã login -->
-              <div class="log" id="profileMenu" ng-class="{'visually-hidden': !isLogin}">
-                <span class="visually-hidden">Profile</span>
-                <img alt="Man"
-                  src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  class="img-fluid rounded-circle" style="width: 37px; height: 37px; object-fit: cover;" />
-                <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2"
-                  ng-click="logOut()">Log out
-                </a>
-              </div>
-
+            <!-- cái này chưa login thì hiện -->
+            <div class="log" id="loginMenu" ng-class="{'visually-hidden': isLogin}">
+              <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2 is-not-sign-in"
+                href="#!login" ng-click="toggleProfile()">Sign In</a>
+              <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2"
+                href="#!register" ng-click="toggleProfile()">Sign Up</a>
             </div>
+
+            <!-- cái này hiện sau khi đã login -->
+            <div class="log" id="profileMenu" ng-class="{'visually-hidden': !isLogin}">
+              <span class="visually-hidden">Profile</span>
+              <img alt="Man"
+                src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                class="img-fluid rounded-circle" style="width: 37px; height: 37px; object-fit: cover;" />
+              <a class="btn rounded-pill bg-light text-secondary border-0 shadow-sm hover-text-dark me-2"
+                ng-click="logOut()">Log out
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
+
   </header>
   <!-- phần ảnh và menu taskbar -->
-  <nav class="row">
-    <img class="pull-right" src="./image/1.jpg" alt="error" />
+  <nav class="container-fluid">
+    <img class="pull-right w-100 object-cover" src="./image/1.jpg" alt="error" />
+
     <div class="taskbar" id="custom-navbar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="justify-content: center;">
         <a class="navbar-brand" href="../index.html"><i class="bi bi-house-door-fill"></i> Home</a>
