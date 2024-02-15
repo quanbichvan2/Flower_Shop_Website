@@ -28,6 +28,9 @@ app.config(function ($routeProvider) {
     .when('/register', {
       templateUrl: 'register.html'
     })
+    .when('/shoppingcart', {
+      templateUrl: 'shoppingcart.html'
+    })
 });
 
 // Controller product
