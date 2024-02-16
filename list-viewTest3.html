@@ -1,0 +1,353 @@
+<!-- phần ảnh giữa -->
+<section>
+  <div class="mb-4 col-12" style="background-color:rgb(68 132 135)">
+    <div class="container py-4">
+      <h3 class="text-white mt-2">Flower Shop</h3>
+      <!-- Breadcrumb -->
+      <nav class="d-flex mb-2">
+        <h6 class="mb-0">
+          <a href="../index.html" class="text-white-50">Home</a>
+          <span class="text-white-50 mx-2"> &gt; </span>
+          <a href="#!list-view" class="text-white"><u>Flowers</u></a>
+        </h6>
+      </nav>
+    </div>
+  </div>
+</section>
+
+
+<!-- đoạn search góc trái -->
+<section class="TypeOfFlower">
+  <div class="container">
+    <div class="row">
+      <!-- sidebar -->
+      <div class="col-lg-3">
+        <!-- Toggle button -->
+        <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span>Show Search</span>
+        </button>
+        <!-- Collapsible wrapper -->
+        <div class="collapse card d-lg-block mb-5" id="navbarSupportedContent">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                  Type Of Flowers
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+                aria-labelledby="headingTwo">
+                <div class="accordion-body">
+                  <div>
+                    <!-- Checked checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked="">
+                      <label class="form-check-label" for="flexCheckChecked1">Flower Bonsai</label>
+                      <span class="badge badge-warning float-end">120</span>
+                    </div>
+                    <!-- Checked checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked="">
+                      <label class="form-check-label" for="flexCheckChecked2">Flower Grasses</label>
+                      <span class="badge badge-success float-end">15</span>
+                    </div>
+                    <!-- Checked checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked="">
+                      <label class="form-check-label" for="flexCheckChecked3">Flower Bouquets</label>
+                      <span class="badge badge-info float-end">35</span>
+                    </div>
+                    <!-- Checked checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked="">
+                      <label class="form-check-label" for="flexCheckChecked4">Flower Trees</label>
+                      <span class="badge badge-secondary float-end">89</span>
+                    </div>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">Flower Plants</label>
+                      <span class="badge badge-secondary float-end">30</span>
+                    </div>
+                    <!-- Default checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">Another</label>
+                      <span class="badge badge-secondary float-end">30</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseThree">
+                  Price
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+                aria-labelledby="headingThree">
+                <div class="accordion-body">
+                  <div class="range">
+                    <input type="range" class="form-range" id="customRange1">
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-6">
+                      <p class="mb-0">
+                        Min
+                      </p>
+                      <div class="form-outline">
+                        <input type="number" id="typeNumberMin" class="form-control" oninput="checkInputMoneyRange()">
+                        <label class=" form-label" for="typeNumber" id="rangeMoneyMin">0.00€</label>
+                      </div>
+                    </div>
+                    <div class=" col-6">
+                      <p class="mb-0">
+                        Max
+                      </p>
+                      <div class="form-outline">
+                        <input type="number" id="typeNumberMax" class="form-control" oninput="checkInputMoneyRange()">
+                        <label class="form-label" for="typeNumber" id="rangeMoneyMax">100.00€</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-white w-100 border border-secondary">Confirm</button>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseFour">
+                  Style and Size
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+                aria-labelledby="headingThree">
+                <div class="accordion-body">
+                  <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1" checked=""
+                    autocomplete="off" onclick="changeColor('btn-check1')">
+                  <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">Small</label>
+
+                  <input type="checkbox" class="btn-check border justify-content-center" id="btn-check2" checked=""
+                    autocomplete="off" onclick="changeColor('btn-check2')">
+                  <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">Med</label>
+
+                  <input type="checkbox" class="btn-check border justify-content-center" id="btn-check3" checked=""
+                    autocomplete="off" onclick="changeColor('btn-check3')">
+                  <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">Big</label>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseFive">
+                  Rates
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
+                aria-labelledby="headingThree">
+                <div class="accordion-body">
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                    </label>
+                  </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                    </label>
+                  </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                    </label>
+                  </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                    </label>
+                  </div>
+                  <!-- Default checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                      <i class="fas fa-star text-secondary"></i>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar -->
+      <!-- đoạn góc phải -->
+      <!-- content -->
+      <div class="col-lg-9">
+        <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
+          <strong class="d-block py-2">
+            <!-- 32 Items found  -->
+          </strong>
+          <div class="ms-auto">
+            <select class="form-select d-inline-block w-auto border pt-1">
+              <option value="0">The Best</option>
+              <option value="1">Recommed</option>
+              <option value="2">Good</option>
+              <option value="3">Random</option>
+            </select>
+            <div class="btn-group shadow-0 border">
+              <a href="#!list-view" class="btn btn-light active" title="List view">
+                <i class="fa fa-bars fa-lg"></i>
+              </a>
+              <a href="#!list-view2" class="btn btn-light" title="Grid view">
+                <i class="fa fa-th fa-lg"></i>
+              </a>
+            </div>
+          </div>
+        </header>
+        <!-- list chiều dọc -->
+        <div class="row col-12" ng-repeat="p in displayedProducts | limitTo: (currentPage - 1) * itemsPerPage + itemsPerPage">
+          <div class="col-md-12">
+            <!-- sp mới -->
+            <div class="card shadow-0 border rounded-3">
+              <div class="card-body">
+                <div class="row g-0">
+                  <div class="col-xl-3 col-md-4 d-flex justify-content-center">
+                    <div class="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
+                      <!-- todo -->
+                      <a href="#!chi-tiet-san-pham/{{p.id}}">
+                        <div class="hover-overlay">
+                          <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                          <img src="image/products/{{p.hinh}}" class="w-100">
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-md-5 col-sm-7">
+                    <h5>{{p.ten}}</h5>
+                    <div class="d-flex flex-row">
+                      <div class="text-warning mb-1 me-2">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span class="ms-1">
+                          4.5
+                        </span>
+                      </div>
+                      <span class="text-muted">{{p.soLuongDaBan}} Has Sold</span>
+                    </div>
+                    <p class="text mb-4 mb-md-0">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fugit dolorem quae consectetur
+                    </p>
+                  </div>
+                  <div class="col-xl-3 col-md-3 col-sm-5">
+                    <div class="d-flex flex-row align-items-center mb-1">
+                      <h4 class="mb-1 me-1">{{p.giamGia}} €</h4>
+                      <span class="text-danger"><s>{{p.gia}} €</s></span>
+                    </div>
+                    <h6 class="text-success">Free Ship</h6>
+                    <div class="mt-4">
+                      <button class="btn btn-primary shadow-0" type="button">Buy It</button>
+                      <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i
+                          class="fas fa-heart fa-lg px-1"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3 col-12">
+          <ul class="pagination">
+            <li class="page-item" ng-click="changePage(currentPage - 1)">
+              <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" ng-class="{ 'active': page === currentPage }" ng-repeat="page in pages">
+              <a class="page-link" href="javascript:void(0)" ng-click="changePage(page)">{{ page }}</a>
+            </li>
+            <li class="page-item" ng-click="changePage(currentPage + 1)">
+              <a class="page-link" href="javascript:void(0)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>        
+        <!-- Pagination -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Function to apply filters based on user input
+  function applyFilters() {
+    // Get the selected flower types
+    const flowerTypes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const selectedTypes = Array.from(flowerTypes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
+
+    // Get the price range
+    const minPrice = document.getElementById('typeNumberMin').value;
+    const maxPrice = document.getElementById('typeNumberMax').value;
+
+    // Get the selected styles and sizes
+    const stylesAndSizes = document.querySelectorAll('input[id^="btn-check"]:checked');
+    const selectedStylesAndSizes = Array.from(stylesAndSizes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
+
+    // Get the selected rates
+    const selectedRates = document.querySelectorAll('input[type="checkbox"]:checked + label i.text-warning').length;
+
+    // Implement your logic to filter the items based on the selected filters
+    // For demonstration purposes, I'm logging the selected filters
+    console.log('Selected Flower Types:', selectedTypes);
+    console.log('Price Range:', minPrice, '-', maxPrice);
+    console.log('Selected Styles and Sizes:', selectedStylesAndSizes);
+    console.log('Selected Rates:', selectedRates);
+  }
+
+  // Event listener for the Confirm button
+  document.getElementById('filtersConfirmButton').addEventListener('click', applyFilters);
+</script>

@@ -29,194 +29,202 @@
           <span>Show Search</span>
         </button>
         <!-- Collapsible wrapper -->
-        <div class="collapse card d-lg-block mb-5" id="navbarSupportedContent">
-          <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                  Type Of Flowers
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
-                aria-labelledby="headingTwo">
-                <div class="accordion-body">
-                  <div>
-                    <!-- Checked checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked="">
-                      <label class="form-check-label" for="flexCheckChecked1">Flower Bonsai</label>
-                      <span class="badge badge-warning float-end">120</span>
-                    </div>
-                    <!-- Checked checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked="">
-                      <label class="form-check-label" for="flexCheckChecked2">Flower Grasses</label>
-                      <span class="badge badge-success float-end">15</span>
-                    </div>
-                    <!-- Checked checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked="">
-                      <label class="form-check-label" for="flexCheckChecked3">Flower Bouquets</label>
-                      <span class="badge badge-info float-end">35</span>
-                    </div>
-                    <!-- Checked checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked="">
-                      <label class="form-check-label" for="flexCheckChecked4">Flower Trees</label>
-                      <span class="badge badge-secondary float-end">89</span>
-                    </div>
-                    <!-- Default checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">Flower Plants</label>
-                      <span class="badge badge-secondary float-end">30</span>
-                    </div>
-                    <!-- Default checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">Another</label>
-                      <span class="badge badge-secondary float-end">30</span>
-                    </div>
-                  </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Type Of Flowers
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body card">
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked="">
+                  <label class="form-check-label" for="flexCheckChecked1">Flower Bonsai</label>
+                  <span class="badge text-bg-warning float-end">120</span>
                 </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseThree">
-                  Price
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
-                aria-labelledby="headingThree">
-                <div class="accordion-body">
-                  <div class="range">
-                    <input type="range" class="form-range" id="customRange1">
-                  </div>
-                  <div class="row mb-3">
-                    <div class="col-6">
-                      <p class="mb-0">
-                        Min
-                      </p>
-                      <div class="form-outline">
-                        <input type="number" id="typeNumberMin" class="form-control" oninput="checkInputMoneyRange()">
-                        <label class=" form-label" for="typeNumber" id="rangeMoneyMin">0.00€</label>
-                      </div>
-                    </div>
-                    <div class=" col-6">
-                      <p class="mb-0">
-                        Max
-                      </p>
-                      <div class="form-outline">
-                        <input type="number" id="typeNumberMax" class="form-control" oninput="checkInputMoneyRange()">
-                        <label class="form-label" for="typeNumber" id="rangeMoneyMax">100.00€</label>
-                      </div>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-white w-100 border border-secondary">Confirm</button>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked="">
+                  <label class="form-check-label" for="flexCheckChecked2">Flower Grasses</label>
+                  <span class="badge text-bg-success float-end">15</span>
                 </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseFour">
-                  Style and Size
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
-                aria-labelledby="headingThree">
-                <div class="accordion-body">
-                  <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1" checked=""
-                    autocomplete="off" onclick="changeColor('btn-check1')">
-                  <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">Small</label>
-
-                  <input type="checkbox" class="btn-check border justify-content-center" id="btn-check2" checked=""
-                    autocomplete="off" onclick="changeColor('btn-check2')">
-                  <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">Med</label>
-
-                  <input type="checkbox" class="btn-check border justify-content-center" id="btn-check3" checked=""
-                    autocomplete="off" onclick="changeColor('btn-check3')">
-                  <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">Big</label>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked="">
+                  <label class="form-check-label" for="flexCheckChecked3">Flower Bouquets</label>
+                  <span class="badge text-bg-primary float-end">35</span>
                 </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                  aria-controls="panelsStayOpen-collapseFive">
-                  Rates
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
-                aria-labelledby="headingThree">
-                <div class="accordion-body">
-                  <!-- Default checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                    </label>
-                  </div>
-                  <!-- Default checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                    </label>
-                  </div>
-                  <!-- Default checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                    </label>
-                  </div>
-                  <!-- Default checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                    </label>
-                  </div>
-                  <!-- Default checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                      <i class="fas fa-star text-secondary"></i>
-                    </label>
-                  </div>
+                <!-- Checked checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked="">
+                  <label class="form-check-label" for="flexCheckChecked4">Flower Trees</label>
+                  <span class="badge text-bg-danger float-end">89</span>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">Flower Plants</label>
+                  <span class="badge text-bg-warning float-end">30</span>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">Another</label>
+                  <span class="badge text-bg-warning float-end">30</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+              </button>
+            </h2>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseThree">
+                Price
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+              aria-labelledby="headingThree">
+              <div class="accordion-body">
+                <div class="range">
+                  <input type="range" class="form-range" id="customRange1">
+                </div>
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <p class="mb-0">Min</p>
+                    <div class="form-outline">
+                      <input type="number" id="typeNumberMin" class="form-control" ng-model='minPrice' required min="0"
+                        max="100">
+                      <label class="form-label" for="typeNumber" id="rangeMoneyMin">0.00€</label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <p class="mb-0">Max</p>
+                    <div class="form-outline">
+                      <input type="number" id="typeNumberMax" class="form-control" ng-model="maxPrice" min="0"
+                        max="100">
+                      <label class="form-label" for="typeNumber" id="rangeMoneyMax">100.00€</label>
+                    </div>
+                  </div>
+
+                </div>
+                <button ng-click="filterProducts()" type="button" class="btn w-100 border border-dark"
+                  style="background-color: rgb(189, 242, 254);">
+                  Confirm
+                </button>
+
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFour">
+                Style and Size
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+              aria-labelledby="headingThree">
+              <div class="accordion-body">
+                <div class="btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-white mb-1 px-1 active" style="font-size: 1rem;">
+                    <input type="checkbox" autocomplete="off" checked> Small
+                  </label>
+                  <label class="btn btn-white mb-1 px-1" style="font-size: 1rem;">
+                    <input type="checkbox" autocomplete="off"> Medium
+                  </label>
+                  <label class="btn btn-white mb-1 px-1" style="font-size: 1rem;">
+                    <input type="checkbox" autocomplete="off"> Big
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFive">
+                Rates
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
+              aria-labelledby="headingThree">
+              <div class="accordion-body">
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                    <i class="fas fa-star text-secondary"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!-- sidebar -->
       <!-- đoạn góc phải -->
@@ -244,7 +252,8 @@
           </div>
         </header>
         <!-- list chiều dọc -->
-        <div class="row col-12" ng-repeat="p in displayedProducts | limitTo: (currentPage - 1) * itemsPerPage + itemsPerPage">
+        <div class="row col-12"
+          ng-repeat="p in displayedProducts | limitTo: (currentPage - 1) * itemsPerPage + itemsPerPage">
           <div class="col-md-12">
             <!-- sp mới -->
             <div class="card shadow-0 border rounded-3">
@@ -315,7 +324,7 @@
               </a>
             </li>
           </ul>
-        </nav>        
+        </nav>
         <!-- Pagination -->
       </div>
     </div>
@@ -324,29 +333,29 @@
 
 <script>
   // Function to apply filters based on user input
-  function applyFilters() {
-    // Get the selected flower types
-    const flowerTypes = document.querySelectorAll('input[type="checkbox"]:checked');
-    const selectedTypes = Array.from(flowerTypes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
+  // function applyFilters() {
+  //   // Get the selected flower types
+  //   const flowerTypes = document.querySelectorAll('input[type="checkbox"]:checked');
+  //   const selectedTypes = Array.from(flowerTypes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
 
-    // Get the price range
-    const minPrice = document.getElementById('typeNumberMin').value;
-    const maxPrice = document.getElementById('typeNumberMax').value;
+  //   // Get the price range
+  //   const minPrice = document.getElementById('typeNumberMin').value;
+  //   const maxPrice = document.getElementById('typeNumberMax').value;
 
-    // Get the selected styles and sizes
-    const stylesAndSizes = document.querySelectorAll('input[id^="btn-check"]:checked');
-    const selectedStylesAndSizes = Array.from(stylesAndSizes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
+  //   // Get the selected styles and sizes
+  //   const stylesAndSizes = document.querySelectorAll('input[id^="btn-check"]:checked');
+  //   const selectedStylesAndSizes = Array.from(stylesAndSizes).map(checkbox => checkbox.nextElementSibling.textContent.trim());
 
-    // Get the selected rates
-    const selectedRates = document.querySelectorAll('input[type="checkbox"]:checked + label i.text-warning').length;
+  //   // Get the selected rates
+  //   const selectedRates = document.querySelectorAll('input[type="checkbox"]:checked + label i.text-warning').length;
 
-    // Implement your logic to filter the items based on the selected filters
-    // For demonstration purposes, I'm logging the selected filters
-    console.log('Selected Flower Types:', selectedTypes);
-    console.log('Price Range:', minPrice, '-', maxPrice);
-    console.log('Selected Styles and Sizes:', selectedStylesAndSizes);
-    console.log('Selected Rates:', selectedRates);
-  }
+  //   // Implement your logic to filter the items based on the selected filters
+  //   // For demonstration purposes, I'm logging the selected filters
+  //   console.log('Selected Flower Types:', selectedTypes);
+  //   console.log('Price Range:', minPrice, '-', maxPrice);
+  //   console.log('Selected Styles and Sizes:', selectedStylesAndSizes);
+  //   console.log('Selected Rates:', selectedRates);
+  // }
 
   // Event listener for the Confirm button
   document.getElementById('filtersConfirmButton').addEventListener('click', applyFilters);

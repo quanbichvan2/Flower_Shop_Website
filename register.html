@@ -1,4 +1,4 @@
-<section>
+<section >
     <div class="menu">
         <!-- Background image -->
         <div id="intro2" class="bg-image shadow-2-strong">
@@ -6,45 +6,69 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-md-8">
-                            <form class="bg-white rounded shadow-5-strong p-5" onsubmit="validateRegistration()">
+                            <form name="frmRegister" class="bg-white rounded shadow-5-strong p-5" 
+                            ng-controller="registerController" ng-submit="submitForm()">
                                 <!-- Full Name input -->
-                                <div class="mb-4">
+                                <div class="mb-2">
                                     <label for="fullName" class="form-label">Full Name</label>
-                                    <input type="text" id="fullName" class="form-control" required />
+                                    <input name="username" ng-model="username.user" type="text" id="fullName"
+                                        class="form-control" required ng-minlength="3" ng-maxlength="20" />
+                                    <i ng-show="frmRegister.username.$invalid" class="text-danger">
+                                        input username from 3 to 20 chars
+                                    </i>
                                 </div>
                                 <!-- Email input -->
-                                <div class="mb-4">
+                                <div class="mb-2">
                                     <label for="emailForRegistration" class="form-label">Email</label>
-                                    <input type="email" id="emailForRegistration" class="form-control" required />
+                                    <input name="email" ng-model="email.user" type="email" id="emailForRegistration"
+                                        class="form-control" ng-change="checkEmailFormat()" required />
+                                    <i ng-show="frmRegister.email.$invalid" class="text-danger">
+                                        Invalid Email
+                                    </i>
+                                </div>
+                                 <!-- Phone Number input -->
+                                 <div class="mb-2">
+                                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                                    <input name="phone" ng-model="phone.user" type="text" id="phoneNumber"
+                                        class="form-control" required ng-pattern="/^\d{10,12}$/" />
+                                    <i ng-show="frmRegister.phone.$invalid" class="text-danger">
+                                        Phone number is required.
+                                    </i>
+                                    <i ng-show="frmRegister.phone.$error.pattern" class="text-danger">
+                                        Phone number must contain 10 to 12 digits.
+                                    </i>
                                 </div>
                                 <!-- Password input with toggleable visibility -->
-                                <div class="mb-4">
+                                <div class="mb-2">
                                     <label for="passwordForRegistration" class="form-label">Password</label>
                                     <div class="input-group">
-                                        <input type="password" id="passwordForRegistration" class="form-control"
-                                            required />
+                                        <input name="password" type="password" ng-model="password.user"
+                                            id="PasswordForRegistration" class="form-control" required
+                                            ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d).+$/" />
                                         <button type="button" class="btn btn-outline-secondary" id="togglePassword">
                                             <i class="bi bi-eye" id="eye"></i>
                                         </button>
                                     </div>
+                                    <div ng-show="frmRegister.password.$invalid" class="text-danger">
+                                        Password must at least one letter and number.
+                                    </div>
                                 </div>
                                 <!-- Confirm Password input -->
-                                <div class="mb-4">
+                                <div class="mb-2">
                                     <label for="confirmPasswordForRegistration" class="form-label">Confirm
                                         Password</label>
                                     <div class="input-group">
-                                        <input type="password" id="confirmPasswordForRegistration" class="form-control"
-                                            required />
+                                        <input name="passwordConfirm" type="password" ng-model="confirmPassword"
+                                            id="confirmPasswordForRegistration" class="form-control" required
+                                            ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d).+$/" />
                                         <button type="button" class="btn btn-outline-secondary"
                                             id="toggleConfirmPassword">
                                             <i class="bi bi-eye" id="eyeConfirm"></i>
                                         </button>
                                     </div>
-                                </div>
-                                <!-- Phone Number input -->
-                                <div class="mb-4">
-                                    <label for="phoneNumber" class="form-label">Phone Number</label>
-                                    <input type="text" id="phoneNumber" class="form-control" required />
+                                    <i ng-show="frmRegister.passwordConfirm.$invalid" class="text-danger">
+                                        Password must at least one letter and number.
+                                    </i>
                                 </div>
                                 <!-- Submit button -->
                                 <button type="submit" class="btn btn-success btn-block">Register</button>
