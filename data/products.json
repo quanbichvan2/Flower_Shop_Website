@@ -4,6 +4,7 @@
             "id": 1,
             "ten": "Subtle Freshness",
             "hinh": "1.png",
+            "loai": "medium size",
             "soLuongDaBan": 154,
             "gia": 43,
             "giamGia": 46
@@ -12,6 +13,7 @@
             "id": 2,
             "ten": "Strawberry Sunset",
             "hinh": "2.png",
+            "loai": "medium size",
             "soLuongDaBan": 120,
             "gia": 60,
             "giamGia": 47
@@ -20,6 +22,7 @@
             "id": 3,
             "ten": "Timeless Love",
             "hinh": "3.png",
+            "loai": "medium size",
             "soLuongDaBan": 100,
             "gia": 61.90,
             "giamGia": 49
@@ -28,30 +31,34 @@
             "id": 4,
             "ten": "Elegant Beautyt",
             "hinh": "4.png",
+            "loai": "medium size",
             "soLuongDaBan": 80,
             "gia": 70.90,
             "giamGia": 52.60
         },
         {
             "id": 5,
-            "ten": "Subtle Freshness",
-            "hinh": "1.png",
+            "ten": "Marigold Trough",
+            "hinh": "5.png",
+            "loai": "big size",
             "soLuongDaBan": 50,
-            "gia": 43,
-            "giamGia": 46
+            "gia": 90,
+            "giamGia": 90
         },
         {
             "id": 6,
-            "ten": "Strawberry Sunset",
-            "hinh": "2.png",
+            "ten": "ABC Clematis Wreath",
+            "hinh": "6.png",
+            "loai": "big size",
             "soLuongDaBan": 154,
-            "gia": 60,
-            "giamGia": 47
+            "gia": 80,
+            "giamGia": 80
         },
         {
             "id": 7,
             "ten": "Timeless Love",
             "hinh": "3.png",
+            "loai": "medium size",
             "soLuongDaBan": 180,
             "gia": 61.90,
             "giamGia": 49
@@ -60,6 +67,7 @@
             "id": 8,
             "ten": "Elegant Beautyt",
             "hinh": "1.png",
+            "loai": "medium size",
             "soLuongDaBan": 125,
             "gia": 70.90,
             "giamGia": 52.60
@@ -68,6 +76,7 @@
             "id": 9,
             "ten": "Subtle Freshness",
             "hinh": "1.png",
+            "loai": "medium size",
             "soLuongDaBan": 99,
             "gia": 43,
             "giamGia": 46
@@ -76,6 +85,25 @@
             "id": 10,
             "ten": "Strawberry Sunset",
             "hinh": "2.png",
+            "loai": "medium size",
+            "soLuongDaBan": 154,
+            "gia": 60,
+            "giamGia": 47
+        },
+        {
+            "id": 11,
+            "ten": "Test",
+            "hinh": "5.png",
+            "loai": "medium size",
+            "soLuongDaBan": 99,
+            "gia": 43,
+            "giamGia": 46
+        },
+        {
+            "id": 12,
+            "ten": "Test2",
+            "hinh": "6.png",
+            "loai": "medium size",
             "soLuongDaBan": 154,
             "gia": 60,
             "giamGia": 47

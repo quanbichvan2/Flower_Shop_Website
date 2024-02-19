@@ -72,42 +72,49 @@ app.controller("productDetailController", function ($scope, $http, $routeParams)
 });
 // nghiên cứu thêm !!!!
 app.controller('listController', function ($scope, $rootScope) {
+  $scope.test = function(){
+    console.log($rootScope.addToCart);
+  }
+  $scope.viewProducts = $rootScope.products;
   $scope.itemsPerPage = 4;
-  $scope.currentPage = 1;
-  $scope.pageCount = Math.ceil($rootScope.products.length / $scope.itemsPerPage);
-  $scope.getPages = function () {
-    var pages = [];
-    for (var i = 1; i <= $scope.pageCount; i++) {
-      pages.push(i);
-    }
-    return pages;
-  };
-  $scope.displayedProducts = $rootScope.products.slice(0, $scope.itemsPerPage);
-  $scope.pages = $scope.getPages();
-
-
-  $scope.changePage = function (newPage) {
-    if (newPage > 0 && newPage <= $scope.pageCount) {
-      $scope.currentPage = newPage;
-    }
-    // Tính toán chỉ hiển thị 8 sản phẩm mới cho mỗi trang
-    var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
-    var endIndex = startIndex + $scope.itemsPerPage;
-    $scope.displayedProducts = $rootScope.products.slice(startIndex, endIndex);
-    console.log($scope.displayedProducts);
-  };
-
+  // $scope.currentPage = 1; 
+  $scope.currentPage = 0;
+  $scope.pageSize = 4;
+  $scope.pages = Math.floor($scope.viewProducts.length/$scope.pageSize);
+  $scope.debug = function(){
+    console.log('pages:' + $scope.pages);
+    console.log('currentpage' + $scope.currentPage);
+    // console.log($scope.pageSize);
+    console.log($scope.filteredItems.length);
+  }
+  $scope.displayPages = Array.from({length: $scope.pages}, (_, index) => index + 1);
+  $scope.getPages= function(item){
+    $scope.currentPage = item-1;
+  }
+  
   // fillter products between 2 price
   $scope.minPrice = 0;
   $scope.maxPrice = 100;
   $scope.filterProducts = function () {
-    $scope.displayedProducts = $rootScope.products.filter(function (product) {
+    $scope.viewProducts = $rootScope.products.filter(function (product) {
       return product.gia >= $scope.minPrice && product.gia <= $scope.maxPrice;
     });
-    $scope.displayedProducts.sort(function (a, b) {
-      return a.price - b.price;
-    });
+    // $scope.viewProducts.sort(function (a, b) {
+    //   return a.price - b.price;
+    // });
   };
+
+  $scope.filterProperty = 'gia';
+  $scope.sortProducts = function(){
+    if($scope.filterProperty === 'gia'){
+      $scope.filterProperty = '-gia';
+    }
+    else{
+      $scope.filterProperty = 'gia';
+    }
+  };
+  
+  $scope.selectedSize = 'medium';
 });
 
 // Định nghĩa controller 'loginController'
@@ -169,7 +176,8 @@ app.controller("cartController", function ($scope, $rootScope, $http) {
     console.log($scope.suggestProducts);
   });
 
-  $scope.addToCart = function (product) {
+  $rootScope.addToCart = function (product) {
+    alert("added");
     var index = $rootScope.carts.findIndex(function (item) {
       return item.id === product.id;
     });
@@ -212,75 +220,77 @@ app.controller("cartController", function ($scope, $rootScope, $http) {
 // Định nghĩa controller cho shopping cart
 app.controller('ShoppingCartController', function ($scope, $rootScope, $http) {
 
-  $scope.suggestProducts = [];
+  $rootScope.suggestProducts = [];
   // suggest products get from json file name products.js
   $http.get('./data/products.json').then(function (response) {
-    $scope.suggestProducts = response.data.Products.slice(0, 4);
-    console.log($scope.suggestProducts);
+    $rootScope.suggestProducts = response.data.Products.slice(0, 4);
+    console.log($rootScope.suggestProducts);
   });
 
 
   // Khởi tạo giá trị cho biến carts từ $rootScope.products hoặc từ service của bạn
-  $scope.carts = [];
-  $scope.total = 0;
-  $scope.discount = 0;
-  console.log($scope.carts);
+  $rootScope.carts = [];
+  $rootScope.total = 0;
+  $rootScope.discount = 0;
+  console.log($rootScope.carts);
 
   // Hàm thêm sản phẩm vào giỏ hàng
-  $scope.addItemToCart = function (item) {
-    var existingItem = $scope.carts.find(function (cartItem) {
+  $rootScope.addItemToCart = function (item) {
+    alert("added from item");
+    var existingItem = $rootScope.carts.find(function (cartItem) {
       return cartItem.id === item.id;
     });
-
+    
     if (existingItem) {
       existingItem.quantity++;
     } else {
       var newItem = angular.copy(item);
       newItem.quantity = 1;
-      $scope.carts.push(newItem);
+      $rootScope.carts.push(newItem);
     }
+    console.log($rootScope.carts);
   };
 
   // Hàm giảm số lượng
-  $scope.decreaseQuantity = function (item) {
+  $rootScope.decreaseQuantity = function (item) {
     if (item.quantity > 1) {
       item.quantity--;
     }
   };
 
   // Hàm tăng số lượng
-  $scope.increaseQuantity = function (item) {
+  $rootScope.increaseQuantity = function (item) {
     item.quantity++;
   };
 
   // Hàm xóa một sản phẩm khỏi giỏ hàng
-  $scope.removeItem = function (item) {
-    var index = $scope.carts.indexOf(item);
+  $rootScope.removeItem = function (item) {
+    var index = $rootScope.carts.indexOf(item);
     if (index !== -1) {
-      $scope.carts.splice(index, 1);
+      $rootScope.carts.splice(index, 1);
     }
   };
   // Hàm tính tổng số tiền của tất cả các sản phẩm trong giỏ hàng
-  $scope.getTotal = function () {
-    $scope.total = 0; // Đặt lại tổng số tiền về 0 trước khi tính toán lại
-    $scope.carts.forEach(function (item) {
-      $scope.total += item.gia * item.quantity;
+  $rootScope.getTotal = function () {
+    $rootScope.total = 0; // Đặt lại tổng số tiền về 0 trước khi tính toán lại
+    $rootScope.carts.forEach(function (item) {
+      $rootScope.total += item.gia * item.quantity;
     });
-    return $scope.total;
+    return $rootScope.total;
   };
-  $scope.checkDiscount = function () {
-    var check = $scope.checkDis;
+  $rootScope.checkDiscount = function () {
+    var check = $rootScope.checkDis;
     if (check === 'Ma10') {
-      $scope.discount = 10;
+      $rootScope.discount = 10;
     }
     else {
       alert("invalid Discount Code");
     }
   }
-  $scope.getPriceDiscount = function () {
-    return $scope.discount;
+  $rootScope.getPriceDiscount = function () {
+    return $rootScope.discount;
   }
-  $scope.checkOut = function () {
+  $rootScope.checkOut = function () {
     alert("Thank you for your purchase! \n\nYour come to 1234 Elm Street, Springfield, Anytown, USA to order or calling +1 (555) 123-4567 for help");
   }
 });

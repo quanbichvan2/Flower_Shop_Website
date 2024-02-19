@@ -91,6 +91,32 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingThree">
               <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                aria-controls="panelsStayOpen-collapseFour">
+                Search Flower Name
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+              aria-labelledby="headingThree">
+              <div class="accordion-body">
+                <input class="" ng-model="findName" type="text" placeholder="search Name here">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+              </button>
+            </h2>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button text-dark bg-light" type="button" data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                 aria-controls="panelsStayOpen-collapseThree">
                 Price
@@ -125,7 +151,10 @@
                   style="background-color: rgb(189, 242, 254);">
                   Confirm
                 </button>
-
+                <button ng-click="sortProducts()" type="button" class="btn w-100 border border-dark"
+                  style="background-color: rgb(250, 250, 250); margin-top: 0.5rem;">
+                  sort Products
+                </button>
               </div>
             </div>
           </div>
@@ -141,14 +170,14 @@
               aria-labelledby="headingThree">
               <div class="accordion-body">
                 <div class="btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-white mb-1 px-1 active" style="font-size: 1rem;">
-                    <input type="checkbox" autocomplete="off" checked> Small
+                  <label class="btn btn-white mb-1 px-1" style="font-size: 1rem;">
+                    <input type="radio" ng-model="selectedSize" value="small" autocomplete="off"> Small
                   </label>
                   <label class="btn btn-white mb-1 px-1" style="font-size: 1rem;">
-                    <input type="checkbox" autocomplete="off"> Medium
+                    <input type="radio" ng-model="selectedSize" value="medium" autocomplete="off"> Medium
                   </label>
                   <label class="btn btn-white mb-1 px-1" style="font-size: 1rem;">
-                    <input type="checkbox" autocomplete="off"> Big
+                    <input type="radio" ng-model="selectedSize" value="big" autocomplete="off"> Big
                   </label>
                 </div>
               </div>
@@ -253,8 +282,10 @@
         </header>
         <!-- list chiều dọc -->
         <div class="row col-12"
-          ng-repeat="p in displayedProducts | limitTo: (currentPage - 1) * itemsPerPage + itemsPerPage">
+          ng-repeat="p in filteredItems = (viewProducts | filter:{ten : findName, loai: selectedSize } |  orderBy: filterProperty |limitTo:pageSize:currentPage*pageSize)">
+          <!-- ng-repeat="p in displayedProducts | orderBy: filterProperty | filter:{ten : findName, loai: selectedSize } |limitTo:pageSize:currentPage*pageSize " -->
           <div class="col-md-12">
+            <!-- limitTo: (currentPage - 1) * itemsPerPage + itemsPerPage -->
             <!-- sp mới -->
             <div class="card shadow-0 border rounded-3">
               <div class="card-body">
@@ -296,7 +327,7 @@
                     </div>
                     <h6 class="text-success">Free Ship</h6>
                     <div class="mt-4">
-                      <button class="btn btn-primary shadow-0" type="button">Buy It</button>
+                      <button class="btn btn-primary shadow-0" type="button" ng-click="addItemToCart(p)">Buy It</button>
                       <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i
                           class="fas fa-heart fa-lg px-1"></i></a>
                     </div>
@@ -310,16 +341,20 @@
         <!-- Pagination -->
         <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3 col-12">
           <ul class="pagination">
-            <li class="page-item" ng-click="changePage(currentPage - 1)">
-              <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+            <li class="page-item">
+              <a class="page-link" ng-class="{ 'disabled': currentPage == 0 }"
+                ng-click="currentPage=currentPage-1;debug()" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item" ng-class="{ 'active': page === currentPage }" ng-repeat="page in pages">
-              <a class="page-link" href="javascript:void(0)" ng-click="changePage(page)">{{ page }}</a>
+            <li class="page-item" ng-repeat="p in displayPages">
+              <a class="page-link" ng-click="getPages(p); debug()">
+                {{p}}
+              </a>
             </li>
-            <li class="page-item" ng-click="changePage(currentPage + 1)">
-              <a class="page-link" href="javascript:void(0)" aria-label="Next">
+            <li class="page-item">
+              <a class="page-link" ng-class="{ 'disabled': currentPage >=(filteredItems.length/pageSize) }"
+                ng-click="currentPage=currentPage+1;debug()" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
